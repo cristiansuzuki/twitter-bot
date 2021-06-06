@@ -108,3 +108,5 @@ static_collected
 
 # Exclude machine-specific vs code settings
 .vscode/settings.json
+main.py
+bots/autoreply.py
