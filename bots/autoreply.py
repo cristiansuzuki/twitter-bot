@@ -24,7 +24,7 @@ def check_mentions(api, keywords, since_id):
                 tweet.user.follow()
 
             api.update_status(
-                ("@" + tweet.user.screen_name + " " + "teste tweet ^~^"),
+                ("@" + tweet.user.screen_name + " " + "^~^"),
                 in_reply_to_status_id=tweet.id,
             )
     return new_since_id
@@ -33,7 +33,7 @@ def main():
     api = create_api()
     since_id = 1
     while True:
-        since_id = check_mentions(api, ["help", "support"], since_id)
+        since_id = check_mentions(api, ["salve", "help", "teste"], since_id)
         logger.info("Waiting...")
         time.sleep(30)
 
