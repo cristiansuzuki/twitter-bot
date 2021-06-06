@@ -8,6 +8,8 @@ from datetime import timedelta, datetime
 import dotenv
 from dotenv import load_dotenv
 
+# heroku deployyy
+
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger()
 
