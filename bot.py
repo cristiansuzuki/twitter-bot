@@ -60,27 +60,57 @@ def check_mentions(api, keywords, since_id):
                 tweet.user.follow()
 
             api.update_status(
-                ("@" + tweet.user.screen_name + " " + "^~^"),
+                ("@" + tweet.user.screen_name + " " + "salve ^~^"),
                 in_reply_to_status_id=tweet.id,
             )
     return new_since_id
 
 def daily_tweet(api, last_tweeted, tweets):
     logger.info("Daily tweet (?)")
-    if last_tweeted < datetime.now()-timedelta(hours=24):
+    if last_tweeted < datetime.now()-timedelta(hours=12):
         api.update_status(tweets)
         return datetime.now()
     else:
         return last_tweeted
+
+def like(api):
+    search = '#redzinbot'
+    limit = 5
+    
+    for tweet in tweepy.Cursor(api.search, search).items(limit):
+        try:
+            print('Tweet curtido e retweetado...')
+            tweet.favorite()
+            tweet.retweet()
+            time.sleep(10)
+        except Exception as e:
+            logger.error("Error on fav", exc_info=True)       
     
 def main():
     since_id = 1
-    tweets = ["lobo-guará @Yohann_matana", "flamengo", "tamanduá-bandeira", ".@csuzukib beber água", "bom dia", ".@Williammaffii vai treinar mlk horrível ^~^"]
+    tweets = ["lobo-guará @Yohann_matana", "flamengo", "tamanduá-bandeira", ".@csuzukib beber água", "bom dia", 
+              ".@Williammaffii vai treinar mlk horrível ^~^",
+              "xd",
+              "ntc ^~^",
+              ".@csuzukib to em choque",
+              ".@elonmusk send salve",
+              ".@rodrigomcc Aqui vai um vídeo para você https://www.youtube.com/watch?v=WMZNLy0hGEI&ab_channel=IntegrandoConhecimento",
+              "https://www.youtube.com/watch?v=nfUdAaPgbo0&ab_channel=geezluis99geezluis99",
+              "https://www.youtube.com/watch?v=F2DrEBIG5-E&ab_channel=GQSports",
+              "hj é sexta-feira",
+              ".@kingjames the GOAT",
+              "boa noite randoms",
+              "O_o https://www.youtube.com/watch?v=eUOYCXymFWE&ab_channel=slater%21slater%21",
+              ";D",
+              "Carl Edward Sagan foi um cientista, físico, biólogo, astrônomo, astrofísico, cosmólogo, escritor, divulgador científico e ativista norte-americano.",
+              ".@indigitalvoid ~_~"
+              ]
     api = create_api()
-    last_tweeted = datetime.now()#-timedelta(hours=24)
+    last_tweeted = datetime.now()#-timedelta(hours=12)
     while True:
+        like(api)
         follow_followers(api)
-        since_id = check_mentions(api, ["salve", "help", "teste"], since_id)
+        since_id = check_mentions(api, ["salve", "e ai", "oi", ""], since_id)
         last_tweeted = daily_tweet(api, last_tweeted, random.choice(tweets))
         logger.info("Waiting...")
         time.sleep(60)
