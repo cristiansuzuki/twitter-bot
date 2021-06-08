@@ -42,8 +42,15 @@ def follow_followers(api):
     logger.info("Verificando seguidores e seguindo de volta...")
     for follower in tweepy.Cursor(api.followers).items():
         if not follower.following:
-            logger.info(f"Seguindo {follower.name}")
-            follower.follow()
+            if follower.protected==False:
+                logger.info(f"Seguindo {follower.name}")
+                follower.follow()
+            else:
+                logger.info("usuário com a conta fechada")
+                pass
+        else:
+            # logger.info("Nenhum seguidor novo...")
+            pass
 
 # Checa as mentions pra ver se alguem mencionou o bot...
 def check_mentions(api, keywords, since_id):
@@ -152,7 +159,7 @@ def main():
         last_tweeted = daily_tweet(api, last_tweeted, random.choice(tweets))
         # woj()
         logger.info("Esperando timer...")
-        time.sleep(60)
+        time.sleep(90)
         
 if __name__ == "__main__":
     main()        
