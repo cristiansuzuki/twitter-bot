@@ -39,14 +39,14 @@ def create_api():
 create_api()
 
 def follow_followers(api):
-    logger.info("Retrieving and following followers")
+    logger.info("Verificando seguidores e seguindo de volta...")
     for follower in tweepy.Cursor(api.followers).items():
         if not follower.following:
-            logger.info(f"Following {follower.name}")
+            logger.info(f"Seguindo {follower.name}")
             follower.follow()
 
 def check_mentions(api, keywords, since_id):
-    logger.info("Retrieving mentions")
+    logger.info("Recuperando mentions...")
     new_since_id = since_id
     for tweet in tweepy.Cursor(api.mentions_timeline,
         since_id=since_id).items():
@@ -54,7 +54,7 @@ def check_mentions(api, keywords, since_id):
         if tweet.in_reply_to_status_id is not None:
             continue
         if any(keyword in tweet.text.lower() for keyword in keywords):
-            logger.info(f"Answering to {tweet.user.name}")
+            logger.info(f"Respondendo {tweet.user.name}")
 
             if not tweet.user.following:
                 tweet.user.follow()
@@ -67,7 +67,7 @@ def check_mentions(api, keywords, since_id):
 
 def daily_tweet(api, last_tweeted, tweets):
     logger.info("Daily tweet (?)")
-    if last_tweeted < datetime.now()-timedelta(hours=12):
+    if last_tweeted < datetime.now()-timedelta(hours=8):
         api.update_status(tweets)
         return datetime.now()
     else:
@@ -85,6 +85,26 @@ def like(api):
             time.sleep(10)
         except Exception as e:
             logger.error("Error on fav", exc_info=True)       
+
+def woj():
+    api = create_api()
+    tweets_woj = api.user_timeline(screen_name="wojespn",
+                    # 200 is the maximum allowed count
+                    count=100,
+                    include_rts = False,
+                    # Necessary to keep full_text 
+                    # otherwise only the first 140 words are extracted
+                    tweet_mode = 'extended'
+                    )
+    for info in tweets_woj[:5]:
+            if info.in_reply_to_status_id is None:
+                # Tweet is a reply
+                try:
+                    logger.info("Postando tweets do Woj...")
+                    api.update_status(status = info.full_text)
+                except:
+                    return
+                    # Tweet is not a reply 
     
 def main():
     since_id = 1
@@ -112,8 +132,9 @@ def main():
         follow_followers(api)
         since_id = check_mentions(api, ["salve", "e ai", "oi", ""], since_id)
         last_tweeted = daily_tweet(api, last_tweeted, random.choice(tweets))
-        logger.info("Waiting...")
-        time.sleep(60)
+        woj()
+        logger.info("Esperando timer...")
+        time.sleep(120)
         
 if __name__ == "__main__":
     main()        
