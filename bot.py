@@ -153,13 +153,13 @@ def main():
     api = create_api()
     last_tweeted = datetime.now()#-timedelta(hours=12)
     while True:
-        like(api)
+        # like(api)
         follow_followers(api)
         since_id = check_mentions(api, ["salve", "e ai", "oi", ""], since_id)
         last_tweeted = daily_tweet(api, last_tweeted, random.choice(tweets))
         # woj()
         logger.info("Esperando timer...")
-        time.sleep(90)
+        time.sleep(60)
         
 if __name__ == "__main__":
     main()        
