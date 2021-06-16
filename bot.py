@@ -53,25 +53,25 @@ def follow_followers(api):
             pass
 
 # Checa as mentions pra ver se alguem mencionou o bot...
-def check_mentions(api, keywords, since_id):
-    logger.info("Recuperando mentions...")
-    new_since_id = since_id
-    for tweet in tweepy.Cursor(api.mentions_timeline,
-        since_id=since_id).items():
-        new_since_id = max(tweet.id, new_since_id)
-        if tweet.in_reply_to_status_id is not None:
-            continue
-        if any(keyword in tweet.text.lower() for keyword in keywords):
-            logger.info(f"Respondendo {tweet.user.name}")
+# def check_mentions(api, keywords, since_id):
+#     logger.info("Recuperando mentions...")
+#     new_since_id = since_id
+#     for tweet in tweepy.Cursor(api.mentions_timeline,
+#         since_id=since_id).items():
+#         new_since_id = max(tweet.id, new_since_id)
+#         if tweet.in_reply_to_status_id is not None:
+#             continue
+#         if any(keyword in tweet.text.lower() for keyword in keywords):
+#             logger.info(f"Respondendo {tweet.user.name}")
 
-            if not tweet.user.following:
-                tweet.user.follow()
+#             if not tweet.user.following:
+#                 tweet.user.follow()
 
-            api.update_status(
-                ("@" + tweet.user.screen_name + " " + "salve ^~^"),
-                in_reply_to_status_id=tweet.id,
-            )
-    return new_since_id
+#             api.update_status(
+#                 ("@" + tweet.user.screen_name + " " + "salve ^~^"),
+#                 in_reply_to_status_id=tweet.id,
+#             )
+#     return new_since_id
 
 # Função que poste tweets diários (no caso abaixo, a cada 12 horas)
 def daily_tweet(api, last_tweeted, tweets):
@@ -155,7 +155,7 @@ def main():
     while True:
         # like(api)
         follow_followers(api)
-        since_id = check_mentions(api, ["salve", "e ai", "oi", ""], since_id)
+        # since_id = check_mentions(api, ["salve", "e ai", "oi", ""], since_id)
         last_tweeted = daily_tweet(api, last_tweeted, random.choice(tweets))
         # woj()
         logger.info("Esperando timer...")
