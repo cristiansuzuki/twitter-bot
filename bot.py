@@ -125,7 +125,7 @@ def main():
               ".@jaytatum0 come to brazil bro",
               "boa noite randoms",
               ";D",
-              "Carl Edward Sagan foi um cientista, físico, biólogo, astrônomo, astrofísico, cosmólogo, escritor, divulgador científico e ativista norte-americano.",
+              "' -''",
               "Se hoje for terça-feira, o mundo é uma simulação.",
               "Infelizmente acabou a competitividade, não existe mais nenhum adversário a altura do Celtics na América do Norte. Está na hora do Celtics ir pra Europa e jogar a Euroliga, ou em uma jogada mais ousada, se filiar a FIBA como uma seleção e disputar a copa do Qatar 2022",
               "Em caso de investigação policial, eu oficialmente declaro que não tenho envolvimento com este grupo, provavelmente fui inserido por terceiros, estou disposto a colaborar com as investigações e a me apresentar a depoimento se necessário, sou completamente inocente.",
@@ -144,15 +144,20 @@ def main():
               "se o mibr voltar mesmo vai ser uma piada na minha humilde opiniao, vao acabar com o nome que foi bem representado.",
               "quem é zywoo ? jogou onde ? já cantou o hino de chuteira na neve ?",
               ".@csuzukib os exaltados serao humilhados",
-              "E DIGO MAIS, O COLDZERA TEM O DOBRO DE MAJORS QUE O SIMPLE.",
-              "CSGO-WxVKG-7tm8J-jcUPC-sjWEb-zDWzE"
+              "zika",
+              "CSGO-WxVKG-7tm8J-jcUPC-sjWEb-zDWzE",
+              "pq o kng troca tanto tiro ????????",
+              "Python é uma linguagem de programação de alto nível, interpretada de script, imperativa, orientada a objetos, funcional, de tipagem dinâmica e forte. Foi lançada por Guido van Rossum em 1991.",
+              "Counter-Strike é uma série de jogos eletrônicos de tiro em primeira pessoa multiplayer, no qual times de terroristas e contra-terroristas batalham entre si, respectivamente, realizando um ato de terror e prevenindo-os. A série iniciou-se no Windows em 1999 com a primeira versão."
               
               
               
+
               ]
     api = create_api()
     last_tweeted = datetime.now()#-timedelta(hours=12)
     while True:
+        api.update_status(".@mezerhane_ @IloThomas2 randoms ~_~")
         # like(api)
         follow_followers(api)
         # since_id = check_mentions(api, ["salve", "e ai", "oi", ""], since_id)
