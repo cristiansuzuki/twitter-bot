@@ -119,7 +119,7 @@ def like(api):
     
 def main():
     since_id = 1
-    tweets = ["lobo-guará @Yohann_matana", "flamengo", "tamanduá-bandeira", ".@csuzukib beber água", "bom dia", 
+    tweets = ["Impressionante a capacidade que esse time tem para ser humilhado e dessa vez eu falo seguramente, deixei isso no comentário na rádio bandeirantes.", "flamengo", "Tudo começou no dia 11 de setembro, dia em que Elon Musk, um famoso empresário, teria acabado de comprar o Grêmio. ", ".@csuzukib beber água", "bom dia", 
               ".@Williammaffii vai treinar mlk horrível ^~^",
               "hj é sexta-feira",
               ".@jaytatum0 come to brazil bro",
@@ -129,7 +129,7 @@ def main():
               "Se hoje for terça-feira, o mundo é uma simulação.",
               "Infelizmente acabou a competitividade, não existe mais nenhum adversário a altura do Celtics na América do Norte. Está na hora do Celtics ir pra Europa e jogar a Euroliga, ou em uma jogada mais ousada, se filiar a FIBA como uma seleção e disputar a copa do Qatar 2022",
               "Em caso de investigação policial, eu oficialmente declaro que não tenho envolvimento com este grupo, provavelmente fui inserido por terceiros, estou disposto a colaborar com as investigações e a me apresentar a depoimento se necessário, sou completamente inocente.",
-              "Se as pessoas soubessem o que aconteceu na Flashpoint 2020, ficariam enojadas.",
+              "Um belo dia dona deide costa estava indo pra freira como fazia todos os dias. Esperava encontrar na feira sua amiga vendedora de frutas paula tejano. Porém no meio do caminho ela sofreu um aciente.",
               "ih 🥴 🥴 🥴 pressao baixo 🤒 🤒 🤒 🤒 ih 🥱 🥱 🥱 🥴 pressao baixo 🥱 🤒 🤒 👎 zzzzZZZZZZ 😴 😴 😴 zzzZZZZZZZ 😴 😴 😴 😴 😴 zzzzZZZZZZ 😴 😴 😴 zzzZZZZZZZ 😴 😴 😴 😴 😴 salve ai mano 😜 👍",
               "coisas toscas que me irritam: memes sobre sobre como o pessoal do ratatouille ia pegar intoxicação alimentar vocês não assistiram o filme, seus cornos filhos da pu7a? O REMI NÃO TOCA NA COMIDA. ele fica puxando o cabelo da passiva lá e ELA mexe na comida.",
               "maldito seja o asteroide que se fragmentou e formou o meteoro que caiu sobre a terra, dizimando os animais que viraram fósseis e depois petróleo que foi extraído e usado na fabricação do combustível, que abasteceu o carro de cimento pra fazer o hospital que você nasceu",
@@ -140,7 +140,7 @@ def main():
               ".@mezerhane_ aqui vai um video para você: https://www.youtube.com/watch?v=efR1t5XACb0&ab_channel=Krome",
               ".@IloThomas2 random !!!!",
               "sucumba kevin durant !!!!",
-              "Flamengo campeão da Copa Libertadores 2021.",
+              "Flamengo campeão da Copa Libertadores 2022.",
               "se o mibr voltar mesmo vai ser uma piada na minha humilde opiniao, vao acabar com o nome que foi bem representado.",
               "quem é zywoo ? jogou onde ? já cantou o hino de chuteira na neve ?",
               ".@csuzukib os exaltados serao humilhados",
@@ -148,16 +148,14 @@ def main():
               "CSGO-WxVKG-7tm8J-jcUPC-sjWEb-zDWzE",
               "pq o kng troca tanto tiro ????????",
               "Python é uma linguagem de programação de alto nível, interpretada de script, imperativa, orientada a objetos, funcional, de tipagem dinâmica e forte. Foi lançada por Guido van Rossum em 1991.",
-              "Counter-Strike é uma série de jogos eletrônicos de tiro em primeira pessoa multiplayer, no qual times de terroristas e contra-terroristas batalham entre si, respectivamente, realizando um ato de terror e prevenindo-os. A série iniciou-se no Windows em 1999 com a primeira versão."
+              "Counter-Strike é uma série de jogos eletrônicos de tiro em primeira pessoa multiplayer, no qual times de terroristas e contra-terroristas batalham entre si, respectivamente, realizando um ato de terror e prevenindo-os. A série iniciou-se no Windows em 1999 com a primeira versão.",
+              "não ligo, não perguntei + pouca habilidade + aguenta + aguenta mais + treina mais + chora + você é careca + você é branco + foda-se + sei lá + você é baixo + você fede + você é frango + ninguém gosta de você + você é otaku + você é pequeno + ninguém liga ",
+              "Você acha engraçado tirar screenshots dos NFTs das pessoas, hein? Roubo de propriedade é uma piada para você? Eu quero que você saiba que o blockchain não mente. Eu possuo-o. Mesmo se você salvá-lo, é minha propriedade."
               
-              
-              
-
               ]
     api = create_api()
     last_tweeted = datetime.now()#-timedelta(hours=12)
     while True:
-        api.update_status(".@mezerhane_ @IloThomas2 randoms ~_~")
         # like(api)
         follow_followers(api)
         # since_id = check_mentions(api, ["salve", "e ai", "oi", ""], since_id)
