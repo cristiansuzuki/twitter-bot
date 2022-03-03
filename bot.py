@@ -97,26 +97,6 @@ def like(api):
         except Exception as e:
             logger.error("Error on fav", exc_info=True)       
 
-# Função que tweeta novos tweets do Woj da ESPN (insider NBA) - Ainda em construção
-# def woj():
-#     api = create_api()
-#     tweets_woj = api.user_timeline(screen_name="wojespn",
-#                     # 200 is the maximum allowed count
-#                     count=100,
-#                     include_rts = False,
-#                     # Necessary to keep full_text 
-#                     # otherwise only the first 140 words are extracted
-#                     tweet_mode = 'extended'
-#                     )
-#     for info in tweets_woj[:5]:
-#             if info.in_reply_to_status_id is None:
-#                 # Tweet is a reply
-#                 try:
-#                     logger.info("Postando tweets do Woj...")
-#                     api.update_status(status = info.full_text)
-#                 except:
-#                     return
-#                     # Tweet is not a reply 
     
 def main():
     since_id = 1
