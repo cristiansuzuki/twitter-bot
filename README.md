@@ -19,4 +19,4 @@ Isso irá rodar o projeto em um servidor local, lembrando que é necessário ter
 
 ## Contribuições
 
-Pull Requests são bem-vindos.
+Pull Requests são bem-vindos
