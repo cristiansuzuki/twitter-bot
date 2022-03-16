@@ -52,7 +52,7 @@ def follow_followers(api):
             # logger.info("Nenhum seguidor novo...")
             pass
 
-#         REFATORAR ESSE BLOCO DE CÓDIGO <-----------------------
+#         REFATORAR ESSE BLOCO DE CÓDIGO <--------------
 # Checa as mentions pra ver se alguem mencionou o bot...
 # def check_mentions(api, keywords, since_id):
 #     logger.info("Recuperando mentions...")
