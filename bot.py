@@ -55,7 +55,7 @@ def follow_followers(api):
             pass
         
 def daily_tweet(api, last_tweeted):
-    numero = str(random.randint(1, 898)) 
+    numero = str(random.randint(1, 493)) 
     URL = "https://pokeapi.co/api/v2/pokemon/" + numero +"/"
     try:
         response = requests.get(URL)
