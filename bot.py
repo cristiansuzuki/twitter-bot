@@ -87,9 +87,9 @@ def daily_tweet(api, last_tweeted):
         logger.info('Este pokémon já foi publicado.')
         pass
     else:
+        logger.info('Horario do ultimo tweet:',last_tweeted)
+        logger.info('Horario atual', datetime.now())
         if last_tweeted < datetime.now()-timedelta(hours=12):
-            logger.info('Horario do ultimo tweet:',last_tweeted)
-            logger.info('Horario atual', datetime.now())
             api.update_status(status=tweet, media_ids=[media.media_id])
             with open('ids.txt', 'a') as f:
                 f.write(id_pokemon)
