@@ -10,6 +10,11 @@ from dotenv import load_dotenv
 import requests
 import json
 import urllib.request
+from nba_api.stats.endpoints import playergamelog
+from nba_api.stats.static import players
+from nba_api.stats.library.parameters import SeasonAll
+from nba_api.stats import endpoints
+import pandas as pd 
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger()
@@ -55,92 +60,20 @@ def follow_followers(api):
             pass
         
 def daily_tweet(api, last_tweeted):
-    numero = str(random.randint(1, 493)) 
-    URL = "https://pokeapi.co/api/v2/pokemon/" + numero +"/"
-    try:
-        response = requests.get(URL)
-    except:
-        logger.info("Erro ao chamar API...")
 
-    res = json.loads(response.text)
-    
-    id_pokemon = str(res['id'])
-    nome_pokemon = res['name']
-    imagem_pokemon = res['sprites']['other']['home']['front_default'] 
+    if last_tweeted < datetime.now()-timedelta(hours=12):
+        api.update_status()
 
-    with urllib.request.urlopen(imagem_pokemon) as url:
-        with open('temp.jpg', 'wb') as f:
-            f.write(url.read())
-    
-    media = api.media_upload("temp.jpg")
-    tweet = 'ID: ' + str(id_pokemon) + '\nNome: ' + nome_pokemon
-        
-    with open('ids.txt') as f:
-        ids = f.readlines()
-        lista=[]
-        for i in range(len(ids)):
-            lista.append(int(ids[i]))
-            
-    id_pokemon_int = int(id_pokemon)
-    
-    if id_pokemon_int in lista:
-        logger.info('Este pokémon já foi publicado.')
-        pass
+        logger.info('Pokemon publicado com sucesso !')        
+        return datetime.now()
     else:
-        logger.info('Horário do ultimo tweet abaixo:')
-        logger.info(last_tweeted)
-        logger.info('Horário atual abaixo:') 
-        logger.info(datetime.now())
-        if last_tweeted < datetime.now()-timedelta(hours=12):
-            api.update_status(status=tweet, media_ids=[media.media_id])
-            with open('ids.txt', 'a') as f:
-                f.write(id_pokemon)
-                f.write('\n')
-            logger.info('Pokemon publicado com sucesso !')        
-            return datetime.now()
-        else:
-            logger.info('Não é hora de publicar...')
-            return last_tweeted
-        
+        logger.info('Não é hora de publicar...')
+        return last_tweeted
+    
 def main(api):         
-    # numero = str(random.randint(1, 898)) 
-    
-    # URL = "https://pokeapi.co/api/v2/pokemon/" + numero +"/"
-    # try:
-    #     response = requests.get(URL)
-    # except:
-    #     logger.info("Erro ao chamar API...")
-
-    # res = json.loads(response.text)
-    
-    # id_pokemon = str(134)
-    # nome_pokemon = res['name']
-    # imagem_pokemon = res['sprites']['front_default']
-    
-    
-    # with urllib.request.urlopen(imagem_pokemon) as url:
-    #     with open('temp.jpg', 'wb') as f:
-    #         f.write(url.read())
-    
-    # media = api.media_upload("temp.jpg")
-    # tweet = 'ID: ' + str(id_pokemon) + '\nNome: ' + nome_pokemon
-        
-    # with open('ids.txt') as f:
-    #     ids = f.readlines()
-    #     lista=[]
-    #     for i in range(len(ids)):
-    #         lista.append(int(ids[i]))
-            
-    # id_pokemon_int = int(id_pokemon)
-    
-    # if id_pokemon_int in lista:
-    #     logger.info('Este pokémon já foi publicado.')
-    #     pass
-    # else:
-    #     logger.info('teste...')
-    #     media, tweet, id_pokemon
-
     last_tweeted = datetime.now()#-timedelta(hours=12)
+    
+    
     while True:
         # like(api)
         follow_followers(api)
