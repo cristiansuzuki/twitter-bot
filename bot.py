@@ -60,15 +60,23 @@ def follow_followers(api):
             pass
         
 def daily_tweet(api, last_tweeted):
-    data = endpoints.leagueleaders.LeagueLeaders(season = SeasonAll.current_season) 
-    df = data.league_leaders.get_data_frame()
+    # Bate na API para retornar os lideres em pontos totais
+    data_pontos = endpoints.leagueleaders.LeagueLeaders(season = SeasonAll.current_season) 
+    df_pontos = data_pontos.league_leaders.get_data_frame()
     
-    tweet = 'NBA - Top 5 pontuadores da temporada: ' + '\n' + '\n' + str(df.PLAYER[0]) + ' - ' + str(df.PTS[0]) + ' pontos' + '\n' + str(df.PLAYER[1]) + ' - ' + str(df.PTS[1]) + ' pontos' + '\n' + str(df.PLAYER[2]) + ' - ' + str(df.PTS[2]) + ' pontos' + '\n' + str(df.PLAYER[3]) + ' - ' + str(df.PTS[3]) + ' pontos' + '\n' + str(df.PLAYER[4]) + ' - ' + str(df.PTS[4]) + ' pontos'
+    pontuadores_totais = 'NBA - Top 5 da temporada: Pontos totais ' + '\n' + '\n' + str(df_pontos.PLAYER[0]) + ' - ' + str(df_pontos.PTS[0]) + ' pontos' + '\n' + str(df_pontos.PLAYER[1]) + ' - ' + str(df_pontos.PTS[1]) + ' pontos' + '\n' + str(df_pontos.PLAYER[2]) + ' - ' + str(df_pontos.PTS[2]) + ' pontos' + '\n' + str(df_pontos.PLAYER[3]) + ' - ' + str(df_pontos.PTS[3]) + ' pontos' + '\n' + str(df_pontos.PLAYER[4]) + ' - ' + str(df_pontos.PTS[4]) + ' pontos'
+
+    # Bate na API para retornar os lideres em rebotes
+    data_rebotes = endpoints.leagueleaders.LeagueLeaders(season = SeasonAll.current_season, stat_category_abbreviation = 'REB') 
+    df_rebotes = data_rebotes.league_leaders.get_data_frame()
+    
+    rebotes_totais = 'NBA - Top 5 da temporada: Rebotes totais' + '\n' + '\n' + str(df_rebotes.PLAYER[0]) + ' - ' + str(df_rebotes.PTS[0]) + ' rebotes' + '\n' + str(df_rebotes.PLAYER[1]) + ' - ' + str(df_rebotes.PTS[1]) + ' rebotes' + '\n' + str(df_rebotes.PLAYER[2]) + ' - ' + str(df_rebotes.PTS[2]) + ' rebotes' + '\n' + str(df_rebotes.PLAYER[3]) + ' - ' + str(df_rebotes.PTS[3]) + ' rebotes' + '\n' + str(df_rebotes.PLAYER[4]) + ' - ' + str(df_rebotes.PTS[4]) + ' rebotes'
+
 
     if last_tweeted < datetime.now()-timedelta(hours=12):
-        api.update_status(tweet)
+        api.update_status(pontuadores_totais)
 
-        logger.info('Pokemon publicado com sucesso !')        
+        logger.info('Stats publicado com sucesso !')        
         return datetime.now()
     else:
         logger.info('Não é hora de publicar...')
