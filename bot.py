@@ -60,9 +60,13 @@ def follow_followers(api):
             pass
         
 def daily_tweet(api, last_tweeted):
+    data = endpoints.leagueleaders.LeagueLeaders(season = SeasonAll.current_season) 
+    df = data.league_leaders.get_data_frame()
+    
+    tweet = 'NBA - Top 5 pontuadores da temporada: ' + '\n' + '\n' + str(df.PLAYER[0]) + ' - ' + str(df.PTS[0]) + ' pontos' + '\n' + str(df.PLAYER[1]) + ' - ' + str(df.PTS[1]) + ' pontos' + '\n' + str(df.PLAYER[2]) + ' - ' + str(df.PTS[2]) + ' pontos' + '\n' + str(df.PLAYER[3]) + ' - ' + str(df.PTS[3]) + ' pontos' + '\n' + str(df.PLAYER[4]) + ' - ' + str(df.PTS[4]) + ' pontos'
 
     if last_tweeted < datetime.now()-timedelta(hours=12):
-        api.update_status()
+        api.update_status(tweet)
 
         logger.info('Pokemon publicado com sucesso !')        
         return datetime.now()
@@ -71,7 +75,7 @@ def daily_tweet(api, last_tweeted):
         return last_tweeted
     
 def main(api):         
-    last_tweeted = datetime.now()#-timedelta(hours=12)
+    last_tweeted = datetime.now()-timedelta(hours=12)
     
     
     while True:
