@@ -9,7 +9,6 @@ import dotenv
 from dotenv import load_dotenv
 import requests
 import json
-import urllib.request
 from nba_api.stats.endpoints import playergamelog
 from nba_api.stats.static import players
 from nba_api.stats.library.parameters import SeasonAll
