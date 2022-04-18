@@ -141,42 +141,50 @@ def daily_tweet(api):
     dia = date.weekday(date.today())
 
     if dia == 0:
+        logger.info('Segunda-feira ! Postando lideres em pontos nos playoffs.')
         api.update_status(pontos_totais_playoffs)
         logger.info("Esperando timer: 24 horas...")
         time.sleep(86400)
         return
 
     if dia == 1:
+        logger.info('Terça-feira ! Postando lideres em rebotes nos playoffs.')
         api.update_status(rebotes_totais_playoffs)
         logger.info("Esperando timer: 24 horas...")
         time.sleep(86400)
         return
 
     if dia == 2:
+        logger.info(
+            'Quarta-feira ! Postando lideres em assistências nos playoffs.')
         api.update_status(assistencias_totais_playoffs)
         logger.info("Esperando timer: 24 horas...")
         time.sleep(86400)
         return
 
     if dia == 3:
+        logger.info('Quinta-feira ! Postando lideres em roubos nos playoffs.')
         api.update_status(roubos_totais_playoffs)
         logger.info("Esperando timer: 24 horas...")
         time.sleep(86400)
         return
 
     if dia == 4:
+        logger.info('Sexta-feira ! Postando lideres em tocos nos playoffs.')
         api.update_status(tocos_totais_playoffs)
         logger.info("Esperando timer: 24 horas...")
         time.sleep(86400)
         return
 
     if dia == 5:
+        logger.info('Sábado ! Postando coisas aleatórias')
         api.update_status('boa noite randoms.')
         logger.info("Esperando timer: 24 horas...")
         time.sleep(86400)
         return
 
     if dia == 6:
+        logger.info('Domingo ! Postando coisas aleatórias.')
         api.update_status('^~^')
         logger.info("Esperando timer: 24 horas...")
         time.sleep(86400)
