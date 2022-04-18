@@ -4,7 +4,7 @@ import logging
 import time
 import datetime
 import random
-from datetime import timedelta, datetime
+from datetime import timedelta, datetime, date
 import dotenv
 from dotenv import load_dotenv
 import requests
@@ -61,7 +61,48 @@ def follow_followers(api):
             pass
 
 
-def daily_tweet(api, last_tweeted):
+def daily_tweet(api):
+
+    ####################################### PLAYOFFS !!! #################################################################
+
+    # Lideres totais em pontos nos playoffs
+    data_pontos_playoffs = endpoints.leagueleaders.LeagueLeaders(
+        season=SeasonAll.current_season, season_type_all_star='Playoffs')
+    df_pontos_playoffs = data_pontos_playoffs.league_leaders.get_data_frame()
+    pontos_totais_playoffs = 'NBA - Top 5 Playoffs 2022: Pontos totais ' + '\n' + '\n' + str(df_pontos_playoffs.PLAYER[0]) + ' - ' + str(df_pontos_playoffs.PTS[0]) + ' pontos' + '\n' + str(df_pontos_playoffs.PLAYER[1]) + ' - ' + str(df_pontos_playoffs.PTS[1]) + ' pontos' + '\n' + str(
+        df_pontos_playoffs.PLAYER[2]) + ' - ' + str(df_pontos_playoffs.PTS[2]) + ' pontos' + '\n' + str(df_pontos_playoffs.PLAYER[3]) + ' - ' + str(df_pontos_playoffs.PTS[3]) + ' pontos' + '\n' + str(df_pontos_playoffs.PLAYER[4]) + ' - ' + str(df_pontos_playoffs.PTS[4]) + ' pontos'
+
+    # Lideres em rebotes totais nos playoffs
+    data_rebotes_playoffs = endpoints.leagueleaders.LeagueLeaders(
+        season=SeasonAll.current_season, stat_category_abbreviation='REB', season_type_all_star='Playoffs')
+    df_rebotes_playoffs = data_rebotes_playoffs.league_leaders.get_data_frame()
+    rebotes_totais_playoffs = 'NBA - Top 5 Playoffs 2022: Rebotes totais' + '\n' + '\n' + str(df_rebotes_playoffs.PLAYER[0]) + ' - ' + str(df_rebotes_playoffs.REB[0]) + ' rebotes' + '\n' + str(df_rebotes_playoffs.PLAYER[1]) + ' - ' + str(df_rebotes_playoffs.REB[1]) + ' rebotes' + '\n' + str(
+        df_rebotes_playoffs.PLAYER[2]) + ' - ' + str(df_rebotes_playoffs.REB[2]) + ' rebotes' + '\n' + str(df_rebotes_playoffs.PLAYER[3]) + ' - ' + str(df_rebotes_playoffs.REB[3]) + ' rebotes' + '\n' + str(df_rebotes_playoffs.PLAYER[4]) + ' - ' + str(df_rebotes_playoffs.REB[4]) + ' rebotes'
+
+    # Lideres em assistencias totais nos playoffs
+    data_assistencias_playoffs = endpoints.leagueleaders.LeagueLeaders(
+        season=SeasonAll.current_season, stat_category_abbreviation='AST', season_type_all_star='Playoffs')
+    df_assistencias_playoffs = data_assistencias_playoffs.league_leaders.get_data_frame()
+    assistencias_totais_playoffs = 'NBA - Top 5 Playoffs 2022: Assistencias totais' + '\n' + '\n' + str(df_assistencias_playoffs.PLAYER[0]) + ' - ' + str(df_assistencias_playoffs.AST[0]) + ' assistencias' + '\n' + str(df_assistencias_playoffs.PLAYER[1]) + ' - ' + str(df_assistencias_playoffs.AST[1]) + ' assistencias' + '\n' + str(
+        df_assistencias_playoffs.PLAYER[2]) + ' - ' + str(df_assistencias_playoffs.AST[2]) + ' assistencias' + '\n' + str(df_assistencias_playoffs.PLAYER[3]) + ' - ' + str(df_assistencias_playoffs.AST[3]) + ' assistencias' + '\n' + str(df_assistencias_playoffs.PLAYER[4]) + ' - ' + str(df_assistencias_playoffs.AST[4]) + ' assistencias'
+
+    # Lideres em roubos de tola totais nos playoffs
+    data_roubos_playoffs = endpoints.leagueleaders.LeagueLeaders(
+        season=SeasonAll.current_season, stat_category_abbreviation='STL', season_type_all_star='Playoffs')
+    df_roubos_playoffs = data_roubos_playoffs.league_leaders.get_data_frame()
+    roubos_totais_playoffs = 'NBA - Top 5 Playoffs 2022: Roubos de bola totais' + '\n' + '\n' + str(df_roubos_playoffs.PLAYER[0]) + ' - ' + str(df_roubos_playoffs.STL[0]) + ' roubos' + '\n' + str(df_roubos_playoffs.PLAYER[1]) + ' - ' + str(df_roubos_playoffs.STL[1]) + ' roubos' + '\n' + str(
+        df_roubos_playoffs.PLAYER[2]) + ' - ' + str(df_roubos_playoffs.STL[2]) + ' roubos' + '\n' + str(df_roubos_playoffs.PLAYER[3]) + ' - ' + str(df_roubos_playoffs.STL[3]) + ' roubos' + '\n' + str(df_roubos_playoffs.PLAYER[4]) + ' - ' + str(df_roubos_playoffs.STL[4]) + ' roubos'
+
+    # Lideres em tocos totais nos playoffs
+    data_tocos_playoffs = endpoints.leagueleaders.LeagueLeaders(
+        season=SeasonAll.current_season, stat_category_abbreviation='BLK', season_type_all_star='Playoffs')
+    df_tocos_playoffs = data_tocos_playoffs.league_leaders.get_data_frame()
+    tocos_totais_playoffs = 'NBA - Top 5 Playoffs 2022: Tocos totais' + '\n' + '\n' + str(df_tocos_playoffs.PLAYER[0]) + ' - ' + str(df_tocos_playoffs.BLK[0]) + ' tocos' + '\n' + str(df_tocos_playoffs.PLAYER[1]) + ' - ' + str(df_tocos_playoffs.BLK[1]) + ' tocos' + '\n' + str(
+        df_tocos_playoffs.PLAYER[2]) + ' - ' + str(df_tocos_playoffs.BLK[2]) + ' tocos' + '\n' + str(df_tocos_playoffs.PLAYER[3]) + ' - ' + str(df_tocos_playoffs.BLK[3]) + ' tocos' + '\n' + str(df_tocos_playoffs.PLAYER[4]) + ' - ' + str(df_tocos_playoffs.BLK[4]) + ' tocos'
+
+
+####################################### TEMPORADA REGULAR !!! ########################################################
+
     # Lideres totais em pontos na temporada
     data_pontos = endpoints.leagueleaders.LeagueLeaders(
         season=SeasonAll.current_season)
@@ -97,24 +138,65 @@ def daily_tweet(api, last_tweeted):
     tocos_totais = 'NBA - Top 5 da temporada: Tocos totais' + '\n' + '\n' + str(df_tocos.PLAYER[0]) + ' - ' + str(df_tocos.BLK[0]) + ' tocos' + '\n' + str(df_tocos.PLAYER[1]) + ' - ' + str(df_tocos.BLK[1]) + ' tocos' + '\n' + str(
         df_tocos.PLAYER[2]) + ' - ' + str(df_tocos.BLK[2]) + ' tocos' + '\n' + str(df_tocos.PLAYER[3]) + ' - ' + str(df_tocos.BLK[3]) + ' tocos' + '\n' + str(df_tocos.PLAYER[4]) + ' - ' + str(df_tocos.BLK[4]) + ' tocos'
 
-    if last_tweeted < datetime.now()-timedelta(hours=12):
-        api.update_status(pontos_totais)
-        logger.info('Stats publicado com sucesso !')
-        return datetime.now()
-    else:
-        logger.info('Não é hora de publicar...')
-        return last_tweeted
+    dia = date.weekday(date.today())
+
+    if dia == 0:
+        api.update_status(pontos_totais_playoffs)
+        logger.info("Esperando timer: 24 horas...")
+        time.sleep(86400)
+        return
+
+    if dia == 1:
+        api.update_status(rebotes_totais_playoffs)
+        logger.info("Esperando timer: 24 horas...")
+        time.sleep(86400)
+        return
+
+    if dia == 2:
+        api.update_status(assistencias_totais_playoffs)
+        logger.info("Esperando timer: 24 horas...")
+        time.sleep(86400)
+        return
+
+    if dia == 3:
+        api.update_status(roubos_totais_playoffs)
+        logger.info("Esperando timer: 24 horas...")
+        time.sleep(86400)
+        return
+
+    if dia == 4:
+        api.update_status(tocos_totais_playoffs)
+        logger.info("Esperando timer: 24 horas...")
+        time.sleep(86400)
+        return
+
+    if dia == 5:
+        api.update_status('boa noite randoms.')
+        logger.info("Esperando timer: 24 horas...")
+        time.sleep(86400)
+        return
+
+    if dia == 6:
+        api.update_status('^~^')
+        logger.info("Esperando timer: 24 horas...")
+        time.sleep(86400)
+        return
+
+    # if last_tweeted < datetime.now()-timedelta(hours=12):
+    #     api.update_status(pontos_totais)
+    #     logger.info('Stats publicado com sucesso !')
+    #     return datetime.now()
+    # else:
+    #     logger.info('Não é hora de publicar...')
+    #     return last_tweeted
 
 
 def main(api):
-    last_tweeted = datetime.now()-timedelta(hours=12)
 
     while True:
         # like(api)
         follow_followers(api)
-        last_tweeted = daily_tweet(api, last_tweeted)
-        logger.info("Esperando timer...")
-        time.sleep(60)
+        daily_tweet(api)
 
 
 if __name__ == "__main__":
