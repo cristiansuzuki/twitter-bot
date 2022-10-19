@@ -65,11 +65,11 @@ def daily_tweet(api):
     ####################################### PLAYOFFS !!! #################################################################
 
     # Lideres totais em pontos nos playoffs
-    data_pontos_playoffs = endpoints.leagueleaders.LeagueLeaders(
-        season=SeasonAll.current_season, season_type_all_star='Playoffs')
-    df_pontos_playoffs = data_pontos_playoffs.league_leaders.get_data_frame()
-    pontos_totais_playoffs = 'NBA - Top 5 Playoffs 2022: Pontos totais ' + '\n' + '\n' + str(df_pontos_playoffs.PLAYER[0]) + ' - ' + str(df_pontos_playoffs.PTS[0]) + ' pontos' + '\n' + str(df_pontos_playoffs.PLAYER[1]) + ' - ' + str(df_pontos_playoffs.PTS[1]) + ' pontos' + '\n' + str(
-        df_pontos_playoffs.PLAYER[2]) + ' - ' + str(df_pontos_playoffs.PTS[2]) + ' pontos' + '\n' + str(df_pontos_playoffs.PLAYER[3]) + ' - ' + str(df_pontos_playoffs.PTS[3]) + ' pontos' + '\n' + str(df_pontos_playoffs.PLAYER[4]) + ' - ' + str(df_pontos_playoffs.PTS[4]) + ' pontos'
+    # data_pontos_playoffs = endpoints.leagueleaders.LeagueLeaders(
+    #     season=SeasonAll.current_season, season_type_all_star='Playoffs')
+    # df_pontos_playoffs = data_pontos_playoffs.league_leaders.get_data_frame()
+    # pontos_totais_playoffs = 'NBA - Top 5 Playoffs 2022: Pontos totais ' + '\n' + '\n' + str(df_pontos_playoffs.PLAYER[0]) + ' - ' + str(df_pontos_playoffs.PTS[0]) + ' pontos' + '\n' + str(df_pontos_playoffs.PLAYER[1]) + ' - ' + str(df_pontos_playoffs.PTS[1]) + ' pontos' + '\n' + str(
+    #     df_pontos_playoffs.PLAYER[2]) + ' - ' + str(df_pontos_playoffs.PTS[2]) + ' pontos' + '\n' + str(df_pontos_playoffs.PLAYER[3]) + ' - ' + str(df_pontos_playoffs.PTS[3]) + ' pontos' + '\n' + str(df_pontos_playoffs.PLAYER[4]) + ' - ' + str(df_pontos_playoffs.PTS[4]) + ' pontos'
 
     # Lideres em rebotes totais nos playoffs
     data_rebotes_playoffs = endpoints.leagueleaders.LeagueLeaders(
