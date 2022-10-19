@@ -66,9 +66,15 @@ def daily_tweet(api):
 
     # Lideres totais em pontos nos playoffs
     data_pontos_playoffs = endpoints.leagueleaders.LeagueLeaders(
+<<<<<<< HEAD
         season=SeasonAll.current_season, season_type_all_star='Regular Season')
     df_pontos_playoffs = data_pontos_playoffs.league_leaders.get_data_frame()
     pontos_totais_playoffs = 'NBA - Top 5 2022/2023: Pontos totais ' + '\n' + '\n' + str(df_pontos_playoffs.PLAYER[0]) + ' - ' + str(df_pontos_playoffs.PTS[0]) + ' pontos' + '\n' + str(df_pontos_playoffs.PLAYER[1]) + ' - ' + str(df_pontos_playoffs.PTS[1]) + ' pontos' + '\n' + str(
+=======
+        season=SeasonAll.current_season, season_type_all_star='Playoffs')
+    df_pontos_playoffs = data_pontos_playoffs.league_leaders.get_data_frame()
+    pontos_totais_playoffs = 'NBA - Top 5 Playoffs 2022: Pontos totais ' + '\n' + '\n' + str(df_pontos_playoffs.PLAYER[0]) + ' - ' + str(df_pontos_playoffs.PTS[0]) + ' pontos' + '\n' + str(df_pontos_playoffs.PLAYER[1]) + ' - ' + str(df_pontos_playoffs.PTS[1]) + ' pontos' + '\n' + str(
+>>>>>>> 56a7072b40fa9825d74e012c74ccd233540edfba
         df_pontos_playoffs.PLAYER[2]) + ' - ' + str(df_pontos_playoffs.PTS[2]) + ' pontos' + '\n' + str(df_pontos_playoffs.PLAYER[3]) + ' - ' + str(df_pontos_playoffs.PTS[3]) + ' pontos' + '\n' + str(df_pontos_playoffs.PLAYER[4]) + ' - ' + str(df_pontos_playoffs.PTS[4]) + ' pontos'
 
     # Lideres em rebotes totais nos playoffs
@@ -102,6 +108,7 @@ def daily_tweet(api):
 
 ####################################### TEMPORADA REGULAR !!! ########################################################
 
+<<<<<<< HEAD
     # Lideres totais em PPG na temporada
     data_pontos = endpoints.leagueleaders.LeagueLeaders(
         season=SeasonAll.current_season)
@@ -114,6 +121,14 @@ def daily_tweet(api):
 
     pontos_totais = 'NBA - Top 5 da temporada: Pontos por jogo ' + '\n' + '\n' + str(df_pontos.PLAYER[0]) + ' - ' + str(PPG0) + ' PPG' + '\n' + str(df_pontos.PLAYER[1]) + ' - ' + str(PPG1) + ' ppg' + '\n' + str(
         df_pontos.PLAYER[2]) + ' - ' + str(PPG2) + ' PPG' + '\n' + str(df_pontos.PLAYER[3]) + ' - ' + str(PPG3) + ' PPG' + '\n' + str(df_pontos.PLAYER[4]) + ' - ' + str(PPG4) + ' PPG'
+=======
+    # Lideres totais em pontos na temporada
+    data_pontos = endpoints.leagueleaders.LeagueLeaders(
+        season=SeasonAll.current_season)
+    df_pontos = data_pontos.league_leaders.get_data_frame()
+    pontos_totais = 'NBA - Top 5 da temporada: Pontos totais ' + '\n' + '\n' + str(df_pontos.PLAYER[0]) + ' - ' + str(df_pontos.PTS[0]) + ' pontos' + '\n' + str(df_pontos.PLAYER[1]) + ' - ' + str(df_pontos.PTS[1]) + ' pontos' + '\n' + str(
+        df_pontos.PLAYER[2]) + ' - ' + str(df_pontos.PTS[2]) + ' pontos' + '\n' + str(df_pontos.PLAYER[3]) + ' - ' + str(df_pontos.PTS[3]) + ' pontos' + '\n' + str(df_pontos.PLAYER[4]) + ' - ' + str(df_pontos.PTS[4]) + ' pontos'
+>>>>>>> 56a7072b40fa9825d74e012c74ccd233540edfba
 
     # Lideres em rebotes totais na temporada
     data_rebotes = endpoints.leagueleaders.LeagueLeaders(
@@ -146,37 +161,62 @@ def daily_tweet(api):
     dia = date.weekday(date.today())
 
     if dia == 0:
+<<<<<<< HEAD
         logger.info('Segunda-feira ! Postando lideres em PPG na temporada')
         api.update_status(pontos_totais)
+=======
+        logger.info('Segunda-feira ! Postando lideres em pontos nos playoffs.')
+        api.update_status(pontos_totais_playoffs)
+>>>>>>> 56a7072b40fa9825d74e012c74ccd233540edfba
         logger.info("Esperando timer: 24 horas...")
         time.sleep(86400)
         return
 
     if dia == 1:
+<<<<<<< HEAD
         logger.info('Terça-feira ! Postando lideres em RPG na temporada.')
         api.update_status(rebotes_totais)
+=======
+        logger.info('Terça-feira ! Postando lideres em rebotes nos playoffs.')
+        api.update_status(rebotes_totais_playoffs)
+>>>>>>> 56a7072b40fa9825d74e012c74ccd233540edfba
         logger.info("Esperando timer: 24 horas...")
         time.sleep(86400)
         return
 
     if dia == 2:
         logger.info(
+<<<<<<< HEAD
             'Quarta-feira ! Postando lideres em APG na temporada')
         api.update_status(assistencias_totais)
+=======
+            'Quarta-feira ! Postando lideres em assistências nos playoffs.')
+        api.update_status(assistencias_totais_playoffs)
+>>>>>>> 56a7072b40fa9825d74e012c74ccd233540edfba
         logger.info("Esperando timer: 24 horas...")
         time.sleep(86400)
         return
 
     if dia == 3:
+<<<<<<< HEAD
         logger.info('Quinta-feira ! Postando lideres em SPG na temporada')
         api.update_status(roubos_totais)
+=======
+        logger.info('Quinta-feira ! Postando lideres em roubos nos playoffs.')
+        api.update_status(roubos_totais_playoffs)
+>>>>>>> 56a7072b40fa9825d74e012c74ccd233540edfba
         logger.info("Esperando timer: 24 horas...")
         time.sleep(86400)
         return
 
     if dia == 4:
+<<<<<<< HEAD
         logger.info('Sexta-feira ! Postando lideres em BPG na temporada.')
         api.update_status(tocos_totais)
+=======
+        logger.info('Sexta-feira ! Postando lideres em tocos nos playoffs.')
+        api.update_status(tocos_totais_playoffs)
+>>>>>>> 56a7072b40fa9825d74e012c74ccd233540edfba
         logger.info("Esperando timer: 24 horas...")
         time.sleep(86400)
         return
