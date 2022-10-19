@@ -13,6 +13,7 @@ from nba_api.stats.endpoints import playergamelog
 from nba_api.stats.static import players
 from nba_api.stats.library.parameters import SeasonAll
 from nba_api.stats import endpoints
+import pandas as pd
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger()
