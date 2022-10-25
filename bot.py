@@ -148,7 +148,7 @@ def daily_tweet(api):
     STL2 = round(df_roubos.STL[2]/df_roubos.GP[2], 1)
     STL3 = round(df_roubos.STL[3]/df_roubos.GP[3], 1)
     STL4 = round(df_roubos.STL[4]/df_roubos.GP[4], 1)
-    roubos_totais = 'NBA - Top 5 da temporada: Roubos de bola totais' + '\n' + '\n' + str(df_roubos.PLAYER[0]) + ' - ' + str(STL0) + ' SPG' + '\n' + str(df_roubos.PLAYER[1]) + ' - ' + str(STL1) + ' SPG' + '\n' + str(
+    roubos_totais = 'NBA - Top 5 da temporada: Roubos de bola por jogo' + '\n' + '\n' + str(df_roubos.PLAYER[0]) + ' - ' + str(STL0) + ' SPG' + '\n' + str(df_roubos.PLAYER[1]) + ' - ' + str(STL1) + ' SPG' + '\n' + str(
         df_roubos.PLAYER[2]) + ' - ' + str(STL2) + ' SPG' + '\n' + str(df_roubos.PLAYER[3]) + ' - ' + str(STL3) + ' SPG' + '\n' + str(df_roubos.PLAYER[4]) + ' - ' + str(STL4) + ' SPG'
 
     # Lideres em tocos por jogo na temporada
