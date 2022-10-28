@@ -103,65 +103,43 @@ def daily_tweet(api):
 
     # Lideres totais em PPG na temporada
     data_pontos = endpoints.leagueleaders.LeagueLeaders(
-        season=SeasonAll.current_season)
+        season=SeasonAll.current_season, per_mode48='PerGame')
     df_pontos = data_pontos.league_leaders.get_data_frame()
-    PPG0 = round(df_pontos.PTS[0]/df_pontos.GP[0], 1)
-    PPG1 = round(df_pontos.PTS[1]/df_pontos.GP[1], 1)
-    PPG2 = round(df_pontos.PTS[2]/df_pontos.GP[2], 1)
-    PPG3 = round(df_pontos.PTS[3]/df_pontos.GP[3], 1)
-    PPG4 = round(df_pontos.PTS[4]/df_pontos.GP[4], 1)
 
-    pontos_totais = 'NBA - Top 5 da temporada: Pontos por jogo ' + '\n' + '\n' + str(df_pontos.PLAYER[0]) + ' - ' + str(PPG0) + ' PPG' + '\n' + str(df_pontos.PLAYER[1]) + ' - ' + str(PPG1) + ' ppg' + '\n' + str(
-        df_pontos.PLAYER[2]) + ' - ' + str(PPG2) + ' PPG' + '\n' + str(df_pontos.PLAYER[3]) + ' - ' + str(PPG3) + ' PPG' + '\n' + str(df_pontos.PLAYER[4]) + ' - ' + str(PPG4) + ' PPG'
+    pontos_totais = 'NBA - Top 5 da temporada: Pontos por jogo ' + '\n' + '\n' + str(df_pontos.PLAYER[0]) + ' - ' + str(df_pontos.PTS[0]) + ' PPG' + '\n' + str(df_pontos.PLAYER[1]) + ' - ' + str(df_pontos.PTS[1]) + ' ppg' + '\n' + str(
+        df_pontos.PLAYER[2]) + ' - ' + str(df_pontos.PTS[2]) + ' PPG' + '\n' + str(df_pontos.PLAYER[3]) + ' - ' + str(df_pontos.PTS[3]) + ' PPG' + '\n' + str(df_pontos.PLAYER[4]) + ' - ' + str(df_pontos.PTS[4]) + ' PPG'
 
     # Lideres em rebotes por jogo na temporada
     data_rebotes = endpoints.leagueleaders.LeagueLeaders(
-        season=SeasonAll.current_season, stat_category_abbreviation='REB')
+        season=SeasonAll.current_season, stat_category_abbreviation='REB', per_mode48='PerGame')
     df_rebotes = data_rebotes.league_leaders.get_data_frame()
-    REB0 = round(df_rebotes.REB[0]/df_rebotes.GP[0], 1)
-    REB1 = round(df_rebotes.REB[1]/df_rebotes.GP[1], 1)
-    REB2 = round(df_rebotes.REB[2]/df_rebotes.GP[2], 1)
-    REB3 = round(df_rebotes.REB[3]/df_rebotes.GP[3], 1)
-    REB4 = round(df_rebotes.REB[4]/df_rebotes.GP[4], 1)
 
-    rebotes_totais = 'NBA - Top 5 da temporada: Rebotes por jogo' + '\n' + '\n' + str(df_rebotes.PLAYER[0]) + ' - ' + str(REB0) + ' RPG' + '\n' + str(df_rebotes.PLAYER[1]) + ' - ' + str(REB1) + ' RPG' + '\n' + str(
-        df_rebotes.PLAYER[2]) + ' - ' + str(REB2) + ' RPG' + '\n' + str(df_rebotes.PLAYER[3]) + ' - ' + str(REB3) + ' RPG' + '\n' + str(df_rebotes.PLAYER[4]) + ' - ' + str(REB4) + ' RPG'
+    rebotes_totais = 'NBA - Top 5 da temporada: Rebotes por jogo' + '\n' + '\n' + str(df_rebotes.PLAYER[0]) + ' - ' + str(df_rebotes.REB[0]) + ' RPG' + '\n' + str(df_rebotes.PLAYER[1]) + ' - ' + str(df_rebotes.REB[1]) + ' RPG' + '\n' + str(
+        df_rebotes.PLAYER[2]) + ' - ' + str(df_rebotes.REB[2]) + ' RPG' + '\n' + str(df_rebotes.PLAYER[3]) + ' - ' + str(df_rebotes.REB[3]) + ' RPG' + '\n' + str(df_rebotes.PLAYER[4]) + ' - ' + str(df_rebotes.REB[4]) + ' RPG'
 
     # Lideres em assistencias por jogo na temporada
     data_assistencias = endpoints.leagueleaders.LeagueLeaders(
-        season=SeasonAll.current_season, stat_category_abbreviation='AST')
+        season=SeasonAll.current_season, stat_category_abbreviation='AST', per_mode48='PerGame')
     df_assistencias = data_assistencias.league_leaders.get_data_frame()
-    AST0 = round(df_assistencias.AST[0]/df_assistencias.GP[0], 2)
-    AST1 = round(df_assistencias.AST[1]/df_assistencias.GP[1], 1)
-    AST2 = round(df_assistencias.AST[2]/df_assistencias.GP[2], 1)
-    AST3 = round(df_assistencias.AST[3]/df_assistencias.GP[3], 1)
-    AST4 = round(df_assistencias.AST[4]/df_assistencias.GP[4], 1)
-    assistencias_totais = 'NBA - Top 5 da temporada: Assistencias por jogo' + '\n' + '\n' + str(df_assistencias.PLAYER[0]) + ' - ' + str(AST0) + ' APG' + '\n' + str(df_assistencias.PLAYER[1]) + ' - ' + str(AST1) + ' APG' + '\n' + str(
-        df_assistencias.PLAYER[2]) + ' - ' + str(AST2) + ' APG' + '\n' + str(df_assistencias.PLAYER[3]) + ' - ' + str(AST3) + ' APG' + '\n' + str(df_assistencias.PLAYER[4]) + ' - ' + str(AST4) + ' APG'
+
+    assistencias_totais = 'NBA - Top 5 da temporada: Assistencias por jogo' + '\n' + '\n' + str(df_assistencias.PLAYER[0]) + ' - ' + str(df_assistencias.AST[0]) + ' APG' + '\n' + str(df_assistencias.PLAYER[1]) + ' - ' + str(df_assistencias.AST[1]) + ' APG' + '\n' + str(
+        df_assistencias.PLAYER[2]) + ' - ' + str(df_assistencias.AST[2]) + ' APG' + '\n' + str(df_assistencias.PLAYER[3]) + ' - ' + str(df_assistencias.AST[3]) + ' APG' + '\n' + str(df_assistencias.PLAYER[4]) + ' - ' + str(df_assistencias.AST[4]) + ' APG'
 
     # Lideres em roubos de bola por jogo na temporada
     data_roubos = endpoints.leagueleaders.LeagueLeaders(
-        season=SeasonAll.current_season, stat_category_abbreviation='STL')
+        season=SeasonAll.current_season, stat_category_abbreviation='STL', per_mode48='PerGame')
     df_roubos = data_roubos.league_leaders.get_data_frame()
-    STL0 = round(df_roubos.STL[0]/df_roubos.GP[0], 2)
-    STL1 = round(df_roubos.STL[1]/df_roubos.GP[1], 1)
-    STL2 = round(df_roubos.STL[2]/df_roubos.GP[2], 1)
-    STL3 = round(df_roubos.STL[3]/df_roubos.GP[3], 1)
-    STL4 = round(df_roubos.STL[4]/df_roubos.GP[4], 1)
-    roubos_totais = 'NBA - Top 5 da temporada: Roubos de bola por jogo' + '\n' + '\n' + str(df_roubos.PLAYER[0]) + ' - ' + str(STL0) + ' SPG' + '\n' + str(df_roubos.PLAYER[1]) + ' - ' + str(STL1) + ' SPG' + '\n' + str(
-        df_roubos.PLAYER[2]) + ' - ' + str(STL2) + ' SPG' + '\n' + str(df_roubos.PLAYER[3]) + ' - ' + str(STL3) + ' SPG' + '\n' + str(df_roubos.PLAYER[4]) + ' - ' + str(STL4) + ' SPG'
+
+    roubos_totais = 'NBA - Top 5 da temporada: Roubos de bola por jogo' + '\n' + '\n' + str(df_roubos.PLAYER[0]) + ' - ' + str(df_roubos.STL[0]) + ' SPG' + '\n' + str(df_roubos.PLAYER[1]) + ' - ' + str(df_roubos.STL[1]) + ' SPG' + '\n' + str(
+        df_roubos.PLAYER[2]) + ' - ' + str(df_roubos.STL[2]) + ' SPG' + '\n' + str(df_roubos.PLAYER[3]) + ' - ' + str(df_roubos.STL[3]) + ' SPG' + '\n' + str(df_roubos.PLAYER[4]) + ' - ' + str(df_roubos.STL[4]) + ' SPG'
 
     # Lideres em tocos por jogo na temporada
     data_tocos = endpoints.leagueleaders.LeagueLeaders(
-        season=SeasonAll.current_season, stat_category_abbreviation='BLK')
+        season=SeasonAll.current_season, stat_category_abbreviation='BLK', per_mode48='PerGame')
     df_tocos = data_tocos.league_leaders.get_data_frame()
-    BLK0 = round(df_tocos.BLK[0]/df_tocos.GP[0], 1)
-    BLK1 = round(df_tocos.BLK[1]/df_tocos.GP[1], 1)
-    BLK2 = round(df_tocos.BLK[2]/df_tocos.GP[2], 1)
-    BLK3 = round(df_tocos.BLK[3]/df_tocos.GP[3], 1)
-    BLK4 = round(df_tocos.BLK[4]/df_tocos.GP[4], 1)
-    tocos_totais = 'NBA - Top 5 da temporada: Tocos por jogo' + '\n' + '\n' + str(df_tocos.PLAYER[0]) + ' - ' + str(BLK0) + ' BPG' + '\n' + str(df_tocos.PLAYER[1]) + ' - ' + str(BLK1) + ' BPG' + '\n' + str(
-        df_tocos.PLAYER[2]) + ' - ' + str(BLK2) + ' BPG' + '\n' + str(df_tocos.PLAYER[3]) + ' - ' + str(BLK3) + ' BPG' + '\n' + str(df_tocos.PLAYER[4]) + ' - ' + str(BLK4) + ' BPG'
+
+    tocos_totais = 'NBA - Top 5 da temporada: Tocos por jogo' + '\n' + '\n' + str(df_tocos.PLAYER[0]) + ' - ' + str(df_tocos.BLK[0]) + ' BPG' + '\n' + str(df_tocos.PLAYER[1]) + ' - ' + str(df_tocos.BLK[1]) + ' BPG' + '\n' + str(
+        df_tocos.PLAYER[2]) + ' - ' + str(df_tocos.BLK[2]) + ' BPG' + '\n' + str(df_tocos.PLAYER[3]) + ' - ' + str(df_tocos.BLK[3]) + ' BPG' + '\n' + str(df_tocos.PLAYER[4]) + ' - ' + str(df_tocos.BLK[4]) + ' BPG'
 
     dia = date.weekday(date.today())
 
