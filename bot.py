@@ -65,112 +65,116 @@ def daily_tweet(api):
     ####################################### PLAYOFFS !!! #################################################################
 
     # Lideres totais em pontos nos playoffs
-    data_pontos_playoffs = endpoints.leagueleaders.LeagueLeaders(
-        season=SeasonAll.current_season, season_type_all_star='Playoffs')
-    df_pontos_playoffs = data_pontos_playoffs.league_leaders.get_data_frame()
-    pontos_totais_playoffs = 'NBA - Top 5 Playoffs 2022: Pontos totais ' + '\n' + '\n' + str(df_pontos_playoffs.PLAYER[0]) + ' - ' + str(df_pontos_playoffs.PTS[0]) + ' pontos' + '\n' + str(df_pontos_playoffs.PLAYER[1]) + ' - ' + str(df_pontos_playoffs.PTS[1]) + ' pontos' + '\n' + str(
-        df_pontos_playoffs.PLAYER[2]) + ' - ' + str(df_pontos_playoffs.PTS[2]) + ' pontos' + '\n' + str(df_pontos_playoffs.PLAYER[3]) + ' - ' + str(df_pontos_playoffs.PTS[3]) + ' pontos' + '\n' + str(df_pontos_playoffs.PLAYER[4]) + ' - ' + str(df_pontos_playoffs.PTS[4]) + ' pontos'
+    # data_pontos_playoffs = endpoints.leagueleaders.LeagueLeaders(
+    #     season=SeasonAll.current_season, season_type_all_star='Playoffs')
+    # df_pontos_playoffs = data_pontos_playoffs.league_leaders.get_data_frame()
+    # pontos_totais_playoffs = 'NBA - Top 5 Playoffs 2022: Pontos totais ' + '\n' + '\n' + str(df_pontos_playoffs.PLAYER[0]) + ' - ' + str(df_pontos_playoffs.PTS[0]) + ' pontos' + '\n' + str(df_pontos_playoffs.PLAYER[1]) + ' - ' + str(df_pontos_playoffs.PTS[1]) + ' pontos' + '\n' + str(
+    #     df_pontos_playoffs.PLAYER[2]) + ' - ' + str(df_pontos_playoffs.PTS[2]) + ' pontos' + '\n' + str(df_pontos_playoffs.PLAYER[3]) + ' - ' + str(df_pontos_playoffs.PTS[3]) + ' pontos' + '\n' + str(df_pontos_playoffs.PLAYER[4]) + ' - ' + str(df_pontos_playoffs.PTS[4]) + ' pontos'
 
     # Lideres em rebotes totais nos playoffs
-    data_rebotes_playoffs = endpoints.leagueleaders.LeagueLeaders(
-        season=SeasonAll.current_season, stat_category_abbreviation='REB', season_type_all_star='Playoffs')
-    df_rebotes_playoffs = data_rebotes_playoffs.league_leaders.get_data_frame()
-    rebotes_totais_playoffs = 'NBA - Top 5 Playoffs 2022: Rebotes totais' + '\n' + '\n' + str(df_rebotes_playoffs.PLAYER[0]) + ' - ' + str(df_rebotes_playoffs.REB[0]) + ' rebotes' + '\n' + str(df_rebotes_playoffs.PLAYER[1]) + ' - ' + str(df_rebotes_playoffs.REB[1]) + ' rebotes' + '\n' + str(
-        df_rebotes_playoffs.PLAYER[2]) + ' - ' + str(df_rebotes_playoffs.REB[2]) + ' rebotes' + '\n' + str(df_rebotes_playoffs.PLAYER[3]) + ' - ' + str(df_rebotes_playoffs.REB[3]) + ' rebotes' + '\n' + str(df_rebotes_playoffs.PLAYER[4]) + ' - ' + str(df_rebotes_playoffs.REB[4]) + ' rebotes'
+    # data_rebotes_playoffs = endpoints.leagueleaders.LeagueLeaders(
+    #     season=SeasonAll.current_season, stat_category_abbreviation='REB', season_type_all_star='Playoffs')
+    # df_rebotes_playoffs = data_rebotes_playoffs.league_leaders.get_data_frame()
+    # rebotes_totais_playoffs = 'NBA - Top 5 Playoffs 2022: Rebotes totais' + '\n' + '\n' + str(df_rebotes_playoffs.PLAYER[0]) + ' - ' + str(df_rebotes_playoffs.REB[0]) + ' rebotes' + '\n' + str(df_rebotes_playoffs.PLAYER[1]) + ' - ' + str(df_rebotes_playoffs.REB[1]) + ' rebotes' + '\n' + str(
+    #     df_rebotes_playoffs.PLAYER[2]) + ' - ' + str(df_rebotes_playoffs.REB[2]) + ' rebotes' + '\n' + str(df_rebotes_playoffs.PLAYER[3]) + ' - ' + str(df_rebotes_playoffs.REB[3]) + ' rebotes' + '\n' + str(df_rebotes_playoffs.PLAYER[4]) + ' - ' + str(df_rebotes_playoffs.REB[4]) + ' rebotes'
 
-    # Lideres em assistencias totais nos playoffs
-    data_assistencias_playoffs = endpoints.leagueleaders.LeagueLeaders(
-        season=SeasonAll.current_season, stat_category_abbreviation='AST', season_type_all_star='Playoffs')
-    df_assistencias_playoffs = data_assistencias_playoffs.league_leaders.get_data_frame()
-    assistencias_totais_playoffs = 'NBA - Top 5 Playoffs 2022: Assistencias totais' + '\n' + '\n' + str(df_assistencias_playoffs.PLAYER[0]) + ' - ' + str(df_assistencias_playoffs.AST[0]) + ' assistencias' + '\n' + str(df_assistencias_playoffs.PLAYER[1]) + ' - ' + str(df_assistencias_playoffs.AST[1]) + ' assistencias' + '\n' + str(
-        df_assistencias_playoffs.PLAYER[2]) + ' - ' + str(df_assistencias_playoffs.AST[2]) + ' assistencias' + '\n' + str(df_assistencias_playoffs.PLAYER[3]) + ' - ' + str(df_assistencias_playoffs.AST[3]) + ' assistencias' + '\n' + str(df_assistencias_playoffs.PLAYER[4]) + ' - ' + str(df_assistencias_playoffs.AST[4]) + ' assistencias'
+    # # Lideres em assistencias totais nos playoffs
+    # data_assistencias_playoffs = endpoints.leagueleaders.LeagueLeaders(
+    #     season=SeasonAll.current_season, stat_category_abbreviation='AST', season_type_all_star='Playoffs')
+    # df_assistencias_playoffs = data_assistencias_playoffs.league_leaders.get_data_frame()
+    # assistencias_totais_playoffs = 'NBA - Top 5 Playoffs 2022: Assistencias totais' + '\n' + '\n' + str(df_assistencias_playoffs.PLAYER[0]) + ' - ' + str(df_assistencias_playoffs.AST[0]) + ' assistencias' + '\n' + str(df_assistencias_playoffs.PLAYER[1]) + ' - ' + str(df_assistencias_playoffs.AST[1]) + ' assistencias' + '\n' + str(
+    #     df_assistencias_playoffs.PLAYER[2]) + ' - ' + str(df_assistencias_playoffs.AST[2]) + ' assistencias' + '\n' + str(df_assistencias_playoffs.PLAYER[3]) + ' - ' + str(df_assistencias_playoffs.AST[3]) + ' assistencias' + '\n' + str(df_assistencias_playoffs.PLAYER[4]) + ' - ' + str(df_assistencias_playoffs.AST[4]) + ' assistencias'
 
-    # Lideres em roubos de tola totais nos playoffs
-    data_roubos_playoffs = endpoints.leagueleaders.LeagueLeaders(
-        season=SeasonAll.current_season, stat_category_abbreviation='STL', season_type_all_star='Playoffs')
-    df_roubos_playoffs = data_roubos_playoffs.league_leaders.get_data_frame()
-    roubos_totais_playoffs = 'NBA - Top 5 Playoffs 2022: Roubos de bola totais' + '\n' + '\n' + str(df_roubos_playoffs.PLAYER[0]) + ' - ' + str(df_roubos_playoffs.STL[0]) + ' roubos' + '\n' + str(df_roubos_playoffs.PLAYER[1]) + ' - ' + str(df_roubos_playoffs.STL[1]) + ' roubos' + '\n' + str(
-        df_roubos_playoffs.PLAYER[2]) + ' - ' + str(df_roubos_playoffs.STL[2]) + ' roubos' + '\n' + str(df_roubos_playoffs.PLAYER[3]) + ' - ' + str(df_roubos_playoffs.STL[3]) + ' roubos' + '\n' + str(df_roubos_playoffs.PLAYER[4]) + ' - ' + str(df_roubos_playoffs.STL[4]) + ' roubos'
+    # # Lideres em roubos de tola totais nos playoffs
+    # data_roubos_playoffs = endpoints.leagueleaders.LeagueLeaders(
+    #     season=SeasonAll.current_season, stat_category_abbreviation='STL', season_type_all_star='Playoffs')
+    # df_roubos_playoffs = data_roubos_playoffs.league_leaders.get_data_frame()
+    # roubos_totais_playoffs = 'NBA - Top 5 Playoffs 2022: Roubos de bola totais' + '\n' + '\n' + str(df_roubos_playoffs.PLAYER[0]) + ' - ' + str(df_roubos_playoffs.STL[0]) + ' roubos' + '\n' + str(df_roubos_playoffs.PLAYER[1]) + ' - ' + str(df_roubos_playoffs.STL[1]) + ' roubos' + '\n' + str(
+    #     df_roubos_playoffs.PLAYER[2]) + ' - ' + str(df_roubos_playoffs.STL[2]) + ' roubos' + '\n' + str(df_roubos_playoffs.PLAYER[3]) + ' - ' + str(df_roubos_playoffs.STL[3]) + ' roubos' + '\n' + str(df_roubos_playoffs.PLAYER[4]) + ' - ' + str(df_roubos_playoffs.STL[4]) + ' roubos'
 
-    # Lideres em tocos totais nos playoffs
-    data_tocos_playoffs = endpoints.leagueleaders.LeagueLeaders(
-        season=SeasonAll.current_season, stat_category_abbreviation='BLK', season_type_all_star='Playoffs')
-    df_tocos_playoffs = data_tocos_playoffs.league_leaders.get_data_frame()
-    tocos_totais_playoffs = 'NBA - Top 5 Playoffs 2022: Tocos totais' + '\n' + '\n' + str(df_tocos_playoffs.PLAYER[0]) + ' - ' + str(df_tocos_playoffs.BLK[0]) + ' tocos' + '\n' + str(df_tocos_playoffs.PLAYER[1]) + ' - ' + str(df_tocos_playoffs.BLK[1]) + ' tocos' + '\n' + str(
-        df_tocos_playoffs.PLAYER[2]) + ' - ' + str(df_tocos_playoffs.BLK[2]) + ' tocos' + '\n' + str(df_tocos_playoffs.PLAYER[3]) + ' - ' + str(df_tocos_playoffs.BLK[3]) + ' tocos' + '\n' + str(df_tocos_playoffs.PLAYER[4]) + ' - ' + str(df_tocos_playoffs.BLK[4]) + ' tocos'
+    # # Lideres em tocos totais nos playoffs
+    # data_tocos_playoffs = endpoints.leagueleaders.LeagueLeaders(
+    #     season=SeasonAll.current_season, stat_category_abbreviation='BLK', season_type_all_star='Playoffs')
+    # df_tocos_playoffs = data_tocos_playoffs.league_leaders.get_data_frame()
+    # tocos_totais_playoffs = 'NBA - Top 5 Playoffs 2022: Tocos totais' + '\n' + '\n' + str(df_tocos_playoffs.PLAYER[0]) + ' - ' + str(df_tocos_playoffs.BLK[0]) + ' tocos' + '\n' + str(df_tocos_playoffs.PLAYER[1]) + ' - ' + str(df_tocos_playoffs.BLK[1]) + ' tocos' + '\n' + str(
+    #     df_tocos_playoffs.PLAYER[2]) + ' - ' + str(df_tocos_playoffs.BLK[2]) + ' tocos' + '\n' + str(df_tocos_playoffs.PLAYER[3]) + ' - ' + str(df_tocos_playoffs.BLK[3]) + ' tocos' + '\n' + str(df_tocos_playoffs.PLAYER[4]) + ' - ' + str(df_tocos_playoffs.BLK[4]) + ' tocos'
 
+    ####################################### TEMPORADA REGULAR !!! ########################################################
 
-####################################### TEMPORADA REGULAR !!! ########################################################
-
-    # Lideres totais em pontos na temporada
+    # Lideres totais em PPG na temporada
     data_pontos = endpoints.leagueleaders.LeagueLeaders(
-        season=SeasonAll.current_season)
+        season=SeasonAll.current_season, per_mode48='PerGame')
     df_pontos = data_pontos.league_leaders.get_data_frame()
-    pontos_totais = 'NBA - Top 5 da temporada: Pontos totais ' + '\n' + '\n' + str(df_pontos.PLAYER[0]) + ' - ' + str(df_pontos.PTS[0]) + ' pontos' + '\n' + str(df_pontos.PLAYER[1]) + ' - ' + str(df_pontos.PTS[1]) + ' pontos' + '\n' + str(
-        df_pontos.PLAYER[2]) + ' - ' + str(df_pontos.PTS[2]) + ' pontos' + '\n' + str(df_pontos.PLAYER[3]) + ' - ' + str(df_pontos.PTS[3]) + ' pontos' + '\n' + str(df_pontos.PLAYER[4]) + ' - ' + str(df_pontos.PTS[4]) + ' pontos'
 
-    # Lideres em rebotes totais na temporada
+    pontos_totais = 'NBA - Top 5 da temporada: Pontos por jogo ' + '\n' + '\n' + str(df_pontos.PLAYER[0]) + ' - ' + str(df_pontos.PTS[0]) + ' PPG' + '\n' + str(df_pontos.PLAYER[1]) + ' - ' + str(df_pontos.PTS[1]) + ' ppg' + '\n' + str(
+        df_pontos.PLAYER[2]) + ' - ' + str(df_pontos.PTS[2]) + ' PPG' + '\n' + str(df_pontos.PLAYER[3]) + ' - ' + str(df_pontos.PTS[3]) + ' PPG' + '\n' + str(df_pontos.PLAYER[4]) + ' - ' + str(df_pontos.PTS[4]) + ' PPG'
+
+    # Lideres em rebotes por jogo na temporada
     data_rebotes = endpoints.leagueleaders.LeagueLeaders(
-        season=SeasonAll.current_season, stat_category_abbreviation='REB')
+        season=SeasonAll.current_season, stat_category_abbreviation='REB', per_mode48='PerGame')
     df_rebotes = data_rebotes.league_leaders.get_data_frame()
-    rebotes_totais = 'NBA - Top 5 da temporada: Rebotes totais' + '\n' + '\n' + str(df_rebotes.PLAYER[0]) + ' - ' + str(df_rebotes.REB[0]) + ' rebotes' + '\n' + str(df_rebotes.PLAYER[1]) + ' - ' + str(df_rebotes.REB[1]) + ' rebotes' + '\n' + str(
-        df_rebotes.PLAYER[2]) + ' - ' + str(df_rebotes.REB[2]) + ' rebotes' + '\n' + str(df_rebotes.PLAYER[3]) + ' - ' + str(df_rebotes.REB[3]) + ' rebotes' + '\n' + str(df_rebotes.PLAYER[4]) + ' - ' + str(df_rebotes.REB[4]) + ' rebotes'
 
-    # Lideres em assistencias totais da temporada
+    rebotes_totais = 'NBA - Top 5 da temporada: Rebotes por jogo' + '\n' + '\n' + str(df_rebotes.PLAYER[0]) + ' - ' + str(df_rebotes.REB[0]) + ' RPG' + '\n' + str(df_rebotes.PLAYER[1]) + ' - ' + str(df_rebotes.REB[1]) + ' RPG' + '\n' + str(
+        df_rebotes.PLAYER[2]) + ' - ' + str(df_rebotes.REB[2]) + ' RPG' + '\n' + str(df_rebotes.PLAYER[3]) + ' - ' + str(df_rebotes.REB[3]) + ' RPG' + '\n' + str(df_rebotes.PLAYER[4]) + ' - ' + str(df_rebotes.REB[4]) + ' RPG'
+
+    # Lideres em assistencias por jogo na temporada
     data_assistencias = endpoints.leagueleaders.LeagueLeaders(
-        season=SeasonAll.current_season, stat_category_abbreviation='AST')
+        season=SeasonAll.current_season, stat_category_abbreviation='AST', per_mode48='PerGame')
     df_assistencias = data_assistencias.league_leaders.get_data_frame()
-    assistencias_totais = 'NBA - Top 5 da temporada: Assistencias totais' + '\n' + '\n' + str(df_assistencias.PLAYER[0]) + ' - ' + str(df_assistencias.AST[0]) + ' assistencias' + '\n' + str(df_assistencias.PLAYER[1]) + ' - ' + str(df_assistencias.AST[1]) + ' assistencias' + '\n' + str(
-        df_assistencias.PLAYER[2]) + ' - ' + str(df_assistencias.AST[2]) + ' assistencias' + '\n' + str(df_assistencias.PLAYER[3]) + ' - ' + str(df_assistencias.AST[3]) + ' assistencias' + '\n' + str(df_assistencias.PLAYER[4]) + ' - ' + str(df_assistencias.AST[4]) + ' assistencias'
 
-    # Lideres em roubos de bola totais na temporada
+    assistencias_totais = 'NBA - Top 5 da temporada: Assistencias por jogo' + '\n' + '\n' + str(df_assistencias.PLAYER[0]) + ' - ' + str(df_assistencias.AST[0]) + ' APG' + '\n' + str(df_assistencias.PLAYER[1]) + ' - ' + str(df_assistencias.AST[1]) + ' APG' + '\n' + str(
+        df_assistencias.PLAYER[2]) + ' - ' + str(df_assistencias.AST[2]) + ' APG' + '\n' + str(df_assistencias.PLAYER[3]) + ' - ' + str(df_assistencias.AST[3]) + ' APG' + '\n' + str(df_assistencias.PLAYER[4]) + ' - ' + str(df_assistencias.AST[4]) + ' APG'
+
+    # Lideres em roubos de bola por jogo na temporada
     data_roubos = endpoints.leagueleaders.LeagueLeaders(
-        season=SeasonAll.current_season, stat_category_abbreviation='STL')
+        season=SeasonAll.current_season, stat_category_abbreviation='STL', per_mode48='PerGame')
     df_roubos = data_roubos.league_leaders.get_data_frame()
-    roubos_totais = 'NBA - Top 5 da temporada: Roubos de bola totais' + '\n' + '\n' + str(df_roubos.PLAYER[0]) + ' - ' + str(df_roubos.STL[0]) + ' roubos' + '\n' + str(df_roubos.PLAYER[1]) + ' - ' + str(df_roubos.STL[1]) + ' roubos' + '\n' + str(
-        df_roubos.PLAYER[2]) + ' - ' + str(df_roubos.STL[2]) + ' roubos' + '\n' + str(df_roubos.PLAYER[3]) + ' - ' + str(df_roubos.STL[3]) + ' roubos' + '\n' + str(df_roubos.PLAYER[4]) + ' - ' + str(df_roubos.STL[4]) + ' roubos'
 
-    # Lideres em tocos totais na temporada
+    roubos_totais = 'NBA - Top 5 da temporada: Roubos de bola por jogo' + '\n' + '\n' + str(df_roubos.PLAYER[0]) + ' - ' + str(df_roubos.STL[0]) + ' SPG' + '\n' + str(df_roubos.PLAYER[1]) + ' - ' + str(df_roubos.STL[1]) + ' SPG' + '\n' + str(
+        df_roubos.PLAYER[2]) + ' - ' + str(df_roubos.STL[2]) + ' SPG' + '\n' + str(df_roubos.PLAYER[3]) + ' - ' + str(df_roubos.STL[3]) + ' SPG' + '\n' + str(df_roubos.PLAYER[4]) + ' - ' + str(df_roubos.STL[4]) + ' SPG'
+
+    # Lideres em tocos por jogo na temporada
     data_tocos = endpoints.leagueleaders.LeagueLeaders(
-        season=SeasonAll.current_season, stat_category_abbreviation='BLK')
+        season=SeasonAll.current_season, stat_category_abbreviation='BLK', per_mode48='PerGame')
     df_tocos = data_tocos.league_leaders.get_data_frame()
-    tocos_totais = 'NBA - Top 5 da temporada: Tocos totais' + '\n' + '\n' + str(df_tocos.PLAYER[0]) + ' - ' + str(df_tocos.BLK[0]) + ' tocos' + '\n' + str(df_tocos.PLAYER[1]) + ' - ' + str(df_tocos.BLK[1]) + ' tocos' + '\n' + str(
-        df_tocos.PLAYER[2]) + ' - ' + str(df_tocos.BLK[2]) + ' tocos' + '\n' + str(df_tocos.PLAYER[3]) + ' - ' + str(df_tocos.BLK[3]) + ' tocos' + '\n' + str(df_tocos.PLAYER[4]) + ' - ' + str(df_tocos.BLK[4]) + ' tocos'
+
+    tocos_totais = 'NBA - Top 5 da temporada: Tocos por jogo' + '\n' + '\n' + str(df_tocos.PLAYER[0]) + ' - ' + str(df_tocos.BLK[0]) + ' BPG' + '\n' + str(df_tocos.PLAYER[1]) + ' - ' + str(df_tocos.BLK[1]) + ' BPG' + '\n' + str(
+        df_tocos.PLAYER[2]) + ' - ' + str(df_tocos.BLK[2]) + ' BPG' + '\n' + str(df_tocos.PLAYER[3]) + ' - ' + str(df_tocos.BLK[3]) + ' BPG' + '\n' + str(df_tocos.PLAYER[4]) + ' - ' + str(df_tocos.BLK[4]) + ' BPG'
 
     dia = date.weekday(date.today())
 
     if dia == 0:
-        logger.info('Segunda-feira ! Postando lideres em pontos nos playoffs.')
-        api.update_status(pontos_totais_playoffs)
+        logger.info('Segunda-feira ! Postando lideres em PPG na temporada')
+        api.update_status(pontos_totais)
         logger.info("Esperando timer: 24 horas...")
         time.sleep(86400)
         return
 
     if dia == 1:
-        logger.info('Terça-feira ! Postando lideres em rebotes nos playoffs.')
-        api.update_status(rebotes_totais_playoffs)
+        logger.info('Terça-feira ! Postando lideres em RPG na temporada.')
+        api.update_status(rebotes_totais)
         logger.info("Esperando timer: 24 horas...")
         time.sleep(86400)
         return
 
     if dia == 2:
         logger.info(
-            'Quarta-feira ! Postando lideres em assistências nos playoffs.')
-        api.update_status(assistencias_totais_playoffs)
+            'Quarta-feira ! Postando lideres em APG na temporada')
+        api.update_status(assistencias_totais)
         logger.info("Esperando timer: 24 horas...")
         time.sleep(86400)
         return
 
     if dia == 3:
-        logger.info('Quinta-feira ! Postando lideres em roubos nos playoffs.')
-        api.update_status(roubos_totais_playoffs)
+        logger.info('Quinta-feira ! Postando lideres em SPG na temporada')
+        api.update_status(roubos_totais)
         logger.info("Esperando timer: 24 horas...")
         time.sleep(86400)
         return
 
     if dia == 4:
-        logger.info('Sexta-feira ! Postando lideres em tocos nos playoffs.')
-        api.update_status(tocos_totais_playoffs)
+        logger.info('Sexta-feira ! Postando lideres em BPG na temporada.')
+        api.update_status(tocos_totais)
         logger.info("Esperando timer: 24 horas...")
         time.sleep(86400)
         return
