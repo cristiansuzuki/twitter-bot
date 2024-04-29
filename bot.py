@@ -23,7 +23,7 @@ dotenv.load_dotenv(dotenv.find_dotenv())
 
 logger = logging.getLogger()
 
-# Função para autenticar a API. Deve ter um arquivo .env na raiz com as suas variáveis e chaves definidas.
+
 
 
 def create_api():
